@@ -12,7 +12,7 @@ export default function SignIn() {
                     Welcome back
                 </CardTitle>
                 <CardDescription className="text-lg text-gray-600">
-                    Sign in to access Nopan portal
+                    Sign in to access the dashboard
                 </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6 px-8 pb-8">

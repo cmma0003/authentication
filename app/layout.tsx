@@ -9,7 +9,7 @@ const archivoFont = Archivo({
 });
 
 export const metadata: Metadata = {
-  title: "Nopan Portal"
+  title: "Test auth"
 };
 
 export default function RootLayout({

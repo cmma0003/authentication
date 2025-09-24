@@ -11,20 +11,9 @@ export default function AuthLayout({
             <div className="w-1/2 flex flex-col justify-center items-center p-12 text-white relative overflow-hidden"
                  style={{ background: `linear-gradient(135deg, #5E47EB 0%, #1A1829 100%)`,}}>
                 <div className="max-w-md text-center space-y-8 relative z-10">
-                    <div className="flex justify-center">
-                        <Image
-                            src="/images/logo-white.png"
-                            alt="Nopan"
-                            width={300}
-                            height={150}
-                        />
-                    </div>
                     <div className="space-y-0">
                         <p className="text-xl leading-relaxed opacity-90">
-                            One platform for modern payment methods.
-                        </p>
-                        <p className="text-xl leading-relaxed opacity-90">
-                            Built for merchants by merchants.
+                            Company marketing info here
                         </p>
                     </div>
                 </div>
