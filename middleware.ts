@@ -1,23 +1,9 @@
+import {auth} from "@/lib/auth/auth";
 export { auth as middleware } from "@/lib/auth/auth";
 
 export const config = {
-    //matcher: ['/((?!api/auth|signin|_next/static|_next/image|static|images).*)'],
-    matcher: [
-        '/((?!.+\\.[\\w]+$|_next).*)',
-        '/((?!api).*)'
-    ],
+    matcher: ['/((?!api/auth|signin|_next/static|_next/image|static|images).*)'],
 };
 
-/*
-export const config = {
-    matcher: [
-        {
-            source:
-                "/((?!api/auth|_next/static|_next/image).*)",
-            missing: [
-                { type: "header", key: "next-router-prefetch" },
-                { type: "header", key: "purpose", value: "prefetch" },
-            ],
-        },
-    ],
-};*/
+export default auth((request) => {
+});

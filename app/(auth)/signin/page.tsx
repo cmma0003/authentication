@@ -4,7 +4,7 @@ interface PageProps {
     searchParams?: { callbackUrl: string };
 }
 
-export default function SignInPage({ searchParams }: PageProps) {
-    const callbackUrl = searchParams?.callbackUrl ?? "/";
+export default async function SignInPage({ searchParams }: PageProps) {
+    const callbackUrl = (await searchParams)?.callbackUrl ?? "/";
     return <SignIn callbackUrl={callbackUrl}/>;
 }
