@@ -1,12 +1,14 @@
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
 import {Button} from "@/components/ui/button";
 import React from "react";
-import {signInCognito} from "@/lib/auth/actions";
 import {UserIcon} from "@heroicons/react/24/outline";
+import {signIn} from "@/lib/auth/auth";
 
-export default function SignIn(props: {
-    searchParams: { callbackUrl: string | undefined }
-}) {
+interface SignInProps {
+    callbackUrl: string;
+}
+
+export default function SignIn({callbackUrl}: SignInProps) {
     return (
         <Card className="shadow-lg border border-gray-100">
             <CardHeader className="space-y-1 text-center pb-8">
@@ -19,9 +21,11 @@ export default function SignIn(props: {
             </CardHeader>
             <CardContent className="space-y-6 px-8 pb-8">
                 <form
-                    onSubmit={async (e) => {
-                        e.preventDefault();
-                        await signInCognito(props.searchParams.callbackUrl ?? "/");
+                    action={async () => {
+                        "use server"
+                        await signIn("cognito", {
+                            redirectTo: callbackUrl,
+                        })
                     }}
                 >
                     <Button className="w-full font-medium text-base h-12" type="submit">
