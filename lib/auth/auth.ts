@@ -1,6 +1,5 @@
 import NextAuth, {NextAuthConfig} from "next-auth";
 import Cognito from "@auth/core/providers/cognito";
-import {linkFederatedUserToExistingProfile} from "@/lib/auth/utils";
 
 export const config : NextAuthConfig = {
     providers: [
