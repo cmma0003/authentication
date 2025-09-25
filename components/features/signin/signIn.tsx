@@ -4,7 +4,9 @@ import React from "react";
 import {signInCognito} from "@/lib/auth/actions";
 import {UserIcon} from "@heroicons/react/24/outline";
 
-export default function SignIn() {
+export default function SignIn(props: {
+    searchParams: { callbackUrl: string | undefined }
+}) {
     return (
         <Card className="shadow-lg border border-gray-100">
             <CardHeader className="space-y-1 text-center pb-8">
@@ -16,7 +18,12 @@ export default function SignIn() {
                 </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6 px-8 pb-8">
-                <form action={signInCognito}>
+                <form
+                    onSubmit={async (e) => {
+                        e.preventDefault();
+                        await signInCognito(props.searchParams.callbackUrl ?? "/");
+                    }}
+                >
                     <Button className="w-full font-medium text-base h-12" type="submit">
                         <UserIcon/>
                         Sign in with Cognito
